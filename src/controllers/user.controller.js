@@ -1,12 +1,4 @@
-const User = require("../models/user");
-
-exports.userBoard = (req, res) => {
-  res.status(200).send("USE");
-};
-
-exports.allAccess = (req, res) => {
-  res.status(200).send("ALL");
-};
+const User = require("../models/user.js");
 
 /*GET USER BY ID*/
 exports.getUserById= (req, res)=>{

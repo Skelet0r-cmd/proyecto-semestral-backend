@@ -1,26 +1,27 @@
-var express = require ( 'express' );
-var mongoose = require ( 'mongoose' );
+const express = require('express')
+const mongoose = require('mongoose')
 require('dotenv').config()
-const user = require('./routes/user')
+const user = require('./routes/user.routes')
+const auth = require('./routes/auth.routes')
 const cors = require('cors')
-/*const auth = require('./routes/auth')*/
+
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json());
+app.use(json());
 user(app);
-/*auth(app);*/
+auth(app);
 
 /*routes*/
 app.get('/',(req,res) => {
-    res.send("Welcompe to my API")
+    res.send("Welcompe to the API")
 });
 
-/* Conexión con mongoose */
+/* CONNECTION TO MONGOOSE */
 mongoose
 .connect(process.env.MONGODB_URI)
-.then(() => console.log('conectado a moongose exitosamente'))
-.catch((error) => console.error('error'));
+.then(() => console.log('CONNECT SUCCESFUL'))
+.catch((error) => console.error('ERROR TO CONNECT'));
 
-app.listen(port,()=> console.log('server listening on port', port));
+app.listen(port,()=> console.log('SERVER LISTENING IN THE PORT:', port));
