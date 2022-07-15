@@ -15,7 +15,7 @@ auth(app);
 
 /*routes*/
 app.get('/',(req,res) => {
-    res.send("Welcompe to the API")
+    res.send("")
 });
 
 /* CONNECTION TO MONGOOSE */
