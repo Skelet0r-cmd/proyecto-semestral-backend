@@ -22,7 +22,8 @@ exports.signIn = (req, res) => {
       });
     }
     var token = jwt.sign({ id: user.id }, config.secret, {
-      expiresIn: 86400, // 24 hours
+      /* EXPIRES IN 48 HOURS 60s x 60 m x 48h = 172800s */
+      expiresIn: 172800,
     });
 
     res.status(200).send({
